@@ -23,8 +23,14 @@ try {
             }
         }
     });
-    for (const [key, value] of eventCountArray.entries()) {
-        console.log(`${key} - ${value}`);
+    if (eventCountArray.size === 0) {
+        console.log(`No ${event} events found`);
+    }
+    else {
+        console.log(`${event} event in a minute:`);
+        for (const [key, value] of eventCountArray.entries()) {
+            console.log(`${key} - ${value}`);
+        }
     }
 }
 catch (error) {
