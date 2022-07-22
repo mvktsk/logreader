@@ -33,6 +33,8 @@ No NOK events found
 
 ## How to run
 
+Prerequisites: Node 14 and above should be installed
+
 - Clone repository locally.
 - Navigate to the directory with the script.
 - Install dependencies: `npm install`.
