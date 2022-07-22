@@ -5,7 +5,7 @@ const event = 'NOK';
 const regExp =
   /\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]) (?:[01]\d|2[0123]):(?:[012345]\d)/;
 
-let nokCountArray = new Map<string, number>();
+const eventCountArray = new Map<string, number>();
 
 if (!filePath) {
   throw new Error('Please provide a file path as an argument');
@@ -16,9 +16,17 @@ try {
   fileContent.split(/\r?\n/).forEach(line => {
     const match = regExp.exec(line);
     if (line.indexOf(event) > -1 && match) {
-      console.log(`${match[0]} - ${line}`);
+      if (eventCountArray.has(match[0])) {
+        let count = eventCountArray.get(match[0]) ?? 0;
+        eventCountArray.set(match[0], ++count);
+      } else {
+        eventCountArray.set(match[0], 1);
+      }
     }
   });
+  for (const [key, value] of eventCountArray.entries()) {
+    console.log(`${key} - ${value}`);
+  }
 } catch (error) {
   console.log(error);
 }
