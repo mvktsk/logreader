@@ -15,7 +15,7 @@ Should count the number of NOK events in each minute.
 
 ## Solution
 
-Hash table to count the number of events in each minute used. When the event is NOK, the key is the string with date hours minute and the value is the number of NOK events.
+Hash table to count the number of events in each minute used. Log file reads line by line and parse "date hours minute" as regular expression. When the event of the log line is NOK, the key is the "date hours minute" string and the value is the number of NOK events pushes to the hash table.
 
 Script outputs the result in the following format:
 
