@@ -16,6 +16,7 @@ Should count the number of NOK events in each minute.
 ## Solution
 
 Hash table to count the number of events in each minute used. When the event is NOK, the key is the string with date hours minute and the value is the number of NOK events.
+
 Script outputs the result in the following format:
 
 ```
